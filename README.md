@@ -16,13 +16,13 @@ Embed your application with ModalProvider
 <!--App.vue -->
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import ModalProvide from "vue-modal-provider";
+import ModalProvider from "vue-modal-provider";
 </script>
 
 <template>
-  <ModalProvide>
+  <ModalProvider>
     <RouterView />
-  </ModalProvide>
+  </ModalProvider>
 </template>
 ```
 Create modal component 

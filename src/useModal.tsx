@@ -28,7 +28,7 @@ const create = (modalId: string, Modal: any) => {
   });
 };
 
-export function useModalProvide() {
+export function useModalProvider() {
   let uuid = 0;
   const getUid = () => `__modal_${uuid++}`;
   const symModalId = Symbol("ModalId");
