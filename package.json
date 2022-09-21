@@ -1,0 +1,72 @@
+{
+  "author": "Jinghui_S",
+  "description": "A modal state manager for vue. ",
+  "name": "vue-modal-provider",
+  "private": false,
+  "version": "0.0.0",
+  "main": "dist/vue-modal-provider.cjs.js",
+  "module": "dist/vue-modal-provider.es.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-modal-provider.es.js",
+      "require": "./dist/vue-modal-provider.cjs.js"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && rimraf types && tsc --build tsconfig-build.json",
+    "preview": "vite preview",
+    "release": "pnpm build && npx release-it",
+    "clean": "rm -rf node_modules **/*/node_modules"
+  },
+  "keywords": [
+    "vue",
+    "vue-modal",
+    "vue-modal-provider"
+  ],
+  "release-it": {
+    "git": {
+      "commitMessage": "chore(release): ${version}",
+      "tagName": "v${version}"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md",
+        "ignoreRecommendedBump": true
+      }
+    },
+    "github": {
+      "release": true,
+      "web": true
+    },
+    "npm": {
+      "publish": true
+    }
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/JinghuiS/vue-modal-provider",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JinghuiS/vue-modal-provider"
+  },
+  "bugs": {
+    "url": "https://github.com/JinghuiS/vue-modal-provider/issues",
+    "email": "1292077619@qq.com"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vue-tsc": "^0.40.4"
+  }
+}
