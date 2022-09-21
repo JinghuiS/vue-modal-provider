@@ -17,7 +17,7 @@ export interface ModalState {
   store: {
     [id: string]: {
       comp: Component<any, any, any, ComputedOptions, MethodOptions>;
-      args?: Record<string, unknown>;
+      args?: ModalArgs;
       visible: boolean;
     };
   };
@@ -38,7 +38,7 @@ export type VueComponent = Component<
   MethodOptions
 >;
 
-export type ModalArgs = Record<string, unknown>;
+export type ModalArgs = any;
 
 export const ModalStateToken = Symbol("ModalStateToken");
 
