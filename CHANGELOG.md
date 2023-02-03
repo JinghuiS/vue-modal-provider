@@ -1,5 +1,12 @@
 
 
+## [0.1.2](https://github.com/JinghuiS/vue-modal-provider/compare/v0.1.1...v0.1.2) (2023-02-03)
+
+
+### Bug Fixes
+
+* 🐛 useModal params undefined ([9354dc1](https://github.com/JinghuiS/vue-modal-provider/commit/9354dc1d701f16abc2806ac987b89c7fa179b72f))
+
 ## [0.1.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.1.0...v0.1.1) (2022-09-21)
 
 
