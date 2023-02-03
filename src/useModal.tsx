@@ -38,7 +38,7 @@ export function useModalProvider() {
   const action = {
     show: (modalId: string, args?: ModalArgs) => {
       if (args) {
-        store[modalId].args = args;
+        store[modalId].args = { ...store[modalId].args, ...args };
       }
       store[modalId].visible = true;
     },
@@ -57,7 +57,7 @@ export function useModalProvider() {
     },
     register: (id: string, comp: any, args: ModalArgs) => {
       if (!store[id]) {
-        store[id] = { comp, visible: false };
+        store[id] = { comp, visible: false, args };
       } else {
         store[id].args = args;
       }

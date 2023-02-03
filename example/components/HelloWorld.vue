@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
+import { useModal, useModalRef } from "../../src";
+import ModalTest from "./ModalTest.vue";
 
-defineProps<{ msg: string }>()
+const { show } = useModal(ModalTest, { msg: "111" });
+const onChange = () => {
+  show({ abc: 1 });
+};
 
-const count = ref(0)
+const count = ref(0);
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="onChange">count is {{ count }}</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
