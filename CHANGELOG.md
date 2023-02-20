@@ -1,5 +1,12 @@
 
 
+# [0.2.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.1.2...v0.2.0) (2023-02-20)
+
+
+### Features
+
+* 🎸 add createdModalContext ([f082109](https://github.com/JinghuiS/vue-modal-provider/commit/f0821091ab5e7254b8162a699b88631ff38969c4))
+
 ## [0.1.2](https://github.com/JinghuiS/vue-modal-provider/compare/v0.1.1...v0.1.2) (2023-02-03)
 
 

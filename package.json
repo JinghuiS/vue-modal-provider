@@ -3,7 +3,7 @@
   "description": "A modal state manager for vue. ",
   "name": "vue-modal-provider",
   "private": false,
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "dist/vue-modal-provider.cjs.js",
   "module": "dist/vue-modal-provider.es.js",
   "types": "dist/types/index.d.ts",
