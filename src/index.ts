@@ -1,4 +1,4 @@
 import ModalProvider from "./ModalProvider.vue";
-import { useModal, useModalRef } from "./useModal";
+import { useModal, useModalRef, createdModalContext } from "./useModal";
 
-export { ModalProvider, useModal, useModalRef };
+export { ModalProvider, useModal, useModalRef, createdModalContext };
