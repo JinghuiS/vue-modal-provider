@@ -1,5 +1,12 @@
 
 
+## [0.2.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.2.0...v0.2.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* 🐛 createdModalContext no export ([0859f54](https://github.com/JinghuiS/vue-modal-provider/commit/0859f543e878b0d05275f6f71c2707ad950850dd))
+
 # [0.2.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.1.2...v0.2.0) (2023-02-20)
 
 
