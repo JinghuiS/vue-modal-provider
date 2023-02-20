@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useModal, useModalRef } from "../../src";
+import { ModalProvider, useModal, useModalRef } from "../../src";
+import { createdModalContext } from "../../src/useModal";
 import ModalTest from "./ModalTest.vue";
 
+const { ModalContent } = createdModalContext();
 const { show } = useModal(ModalTest, { msg: "111" });
 const onChange = () => {
   show({ abc: 1 });
@@ -32,6 +34,7 @@ const count = ref(0);
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <ModalContent />
 </template>
 
 <style scoped>

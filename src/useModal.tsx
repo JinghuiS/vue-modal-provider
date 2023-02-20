@@ -1,6 +1,8 @@
 import {
   computed,
   defineComponent,
+  getCurrentInstance,
+  h,
   provide,
   reactive,
   ref,
@@ -81,39 +83,58 @@ export function useModalProvider() {
   return { modalList };
 }
 
+export function createdModalContext() {
+  const { modalList } = useModalProvider();
+
+  const ModalContent = defineComponent({
+    name: "ModalContent",
+    render() {
+      return modalList.value.map((item) => h(item.comp));
+    },
+  });
+
+  return { ModalContent };
+}
+
 export function useModal(modal: VueComponent, args?: ModalArgs) {
-  const { store, action, modalPromise } = modalContext();
-  const modalId = action?.getModalId(modal);
+  const instance = getCurrentInstance();
+  //@ts-ignore
+  const instanceInjector = instance!.provides[ModalStateToken];
+  let modalInstance = modalContext();
+  if (instanceInjector) {
+    modalInstance = instanceInjector;
+  }
+  const modalId = modalInstance.action?.getModalId(modal);
 
   // first
   const firstShow = ref(true);
 
-  const modalInfo = store?.[modalId];
+  const modalInfo = modalInstance.store?.[modalId];
 
   const show = (showArgs?: ModalArgs) => {
     if (firstShow.value || !modalInfo) {
       const newModal = create(modalId, modal);
-      action?.register(modalId, newModal, args);
+      modalInstance.action?.register(modalId, newModal, args);
       firstShow.value = false;
     }
-    if (!modalPromise![modalId]) {
+    if (!modalInstance.modalPromise![modalId]) {
       let modalResolve!: (args?: unknown) => void;
       let modalReject!: (args?: unknown) => void;
       const promise = new Promise((resolve, reject) => {
         modalResolve = resolve;
         modalReject = reject;
       });
-      modalPromise![modalId] = {
+      modalInstance.modalPromise![modalId] = {
         promise,
         reject: modalReject,
         resolve: modalResolve,
       };
     }
 
-    action?.show(modalId, showArgs);
-    return modalPromise![modalId].promise;
+    modalInstance.action?.show(modalId, showArgs);
+    return modalInstance.modalPromise![modalId].promise;
   };
-  const hide = () => action?.hide(modalId);
+  const hide = () => modalInstance.action?.hide(modalId);
 
   return { show, hide };
 }
