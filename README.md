@@ -6,12 +6,6 @@
 
 [Here](https://vue-modal-provider.netlify.app)The online document.
 
-benefit：
-
-- Create modal without losing context
-- No need to maintain show variables
-- Using promise interact
-
 ## Installation
 
 ```bash
