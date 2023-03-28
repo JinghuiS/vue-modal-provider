@@ -1,0 +1,40 @@
+button:
+  about: About
+  back: Back
+  go: GO
+  home: Home
+  toggle_dark: Toggle dark mode
+  toggle_langs: Change languages
+intro:
+  desc: Easily manage the vue3 popup layer
+  dynamic-route: Demo of dynamic route
+  hi: Hi, {name}!
+  aka: Also known as
+  whats-your-name: What's your name?
+not-found: Not found
+Usage:
+  title: Embed your application with ModalProvider
+  about: We will manage your modal state globally through dependency injection, so you need to embed ModalProvider on the root component
+
+first_step: First step
+
+first_about: First, put ModalProvider on the root component or above the modal component
+base_use:
+  title: Base Use
+  how_can_use: First create a modal component and use
+  hook_name: useModalRef
+  manage_the_state: to manage the state
+  how_can_use_useModal: Then, pass the modal component you just created to
+  use_modal: useModal
+  on_page: and show it with the show method returned by useModal
+  help: You can pass the value to the modal component through the show method, and then receive it in the args returned by useModalRef in the popup component
+  modal_value: The value passed to the modal component
+  open_modal: Open Modal
+  close_modal: Close Modal
+  modal_result: Modal result
+  promise_modal_about: Sometimes we may need to fill in a form or something in the modal, and how to communicate between the modal and the page is also a tedious thing. We can use promise to pass the result
+  promise_modal_close_button: Close modal and pass result
+
+real_case:
+  title: Real Case
+  use_element: Use element-plus

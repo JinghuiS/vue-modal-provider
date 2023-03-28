@@ -1,0 +1,66 @@
+@import './markdown.css';
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html.dark {
+  background: #2d2c2c;
+  color-scheme: dark;
+}
+html.dark code {
+  background: #0e0e0e !important;
+}
+
+html.dark .help{
+  background: #0e0e0e !important;
+}
+
+.help {
+  text-align: start;
+  padding: 20px;
+  margin: auto;
+
+  background: #f8f8f8 !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+
+}
+.help::before{
+  display: inline-flex;
+  content: '\1f4a1';
+  margin-right: 10px;
+
+}
+
+code {
+  background: #f8f8f8 !important;
+  white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    color: var(--un-prose-code);
+    font-size: .875em;
+    font-weight: 600;
+    font-family: var(--un-prose-font-mono);
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: rgb(13,148,136);
+  opacity: 0.75;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}

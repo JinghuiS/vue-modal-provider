@@ -1,0 +1,41 @@
+button:
+  about: 关于
+  back: 返回
+  go: 确定
+  home: 首页
+  toggle_dark: 切换深色模式
+  toggle_langs: 切换语言
+intro:
+  desc: 简单方便的管理vue3弹出层
+  dynamic-route: 动态路由演示
+  hi: 你好，{name}
+  aka: 也叫
+  whats-your-name: 输入你的名字
+not-found: 未找到页面
+Usage:
+  title: 如何使用
+  about: 我们将通过依赖注入的方式，全局管理你的modal状态,所以需要在根组件上嵌入ModalProvider
+
+first_step: 第一步
+
+first_about: 首先把ModalProvider放到根组件上或者，你想要使用modal组件的上一层
+base_use:
+  title: 基础使用
+  how_can_use: 首先创建一个modal组件，并用
+  hook_name: useModalRef
+  manage_the_state: 来管理状态
+  how_can_use_useModal: 在页面上将刚刚创建好的modal组件，传给
+  use_modal: useModal
+  on_page: 并通过useModal返回的show方法展示modal组件
+  help: 可以通过show方法传递值给弹窗组件，然后在弹窗组件中通过useModalRef返回的args中接收
+  modal_value: 传递给modal组件的值
+  open_modal: 打开弹窗
+  close_modal: 关闭弹窗
+
+  modal_result: 获取弹窗结果
+  promise_modal_about: 有的时候可能需要在弹窗进行填写表单之类的操作,如何让弹窗与页面通信也是一件繁琐的事情，我们可以通过promise来进行结果的传递
+  promise_modal_close_button: 关闭弹窗并且传递结果
+
+real_case:
+  title: 真实案例
+  use_element: 使用element-plus的案例
