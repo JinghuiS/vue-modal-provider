@@ -1,17 +1,25 @@
 # vue-modal-provider
-[nice-modal-react](https://github.com/eBay/nice-modal-react) vue implementation.  Simple to use and manage modal. 
+
+[nice-modal-react](https://github.com/eBay/nice-modal-react) vue implementation. Simple to use and manage modal.
+
+[doc](https://vue-modal-provider.netlify.app)
 
 benefit：
+
 - Create modal without losing context
 - No need to maintain show variables
 - Using promise interact
 
 ## Installation
+
 ```bash
 $ npm install vue-modal-provider
 ```
+
 ## Examples
+
 Embed your application with ModalProvider
+
 ```vue
 <!--App.vue -->
 <script setup lang="ts">
@@ -25,7 +33,9 @@ import { ModalProvider } from "vue-modal-provider";
   </ModalProvider>
 </template>
 ```
-Create modal component 
+
+Create modal component
+
 ```vue
 <!-- Modal.vue -->
 <template>
@@ -37,37 +47,36 @@ Create modal component
 
 <script lang="ts" setup>
 import { useModalRef } from "vue-modal-provider";
-const { 
-    // show variables
-    visible, 
-    // close modal
-    hide, 
-    args,
-    // remove modal lose animation
-    remove, 
-    resolve,
-    reject
-    } = useModalRef();
+const {
+  // show variables
+  visible,
+  // close modal
+  hide,
+  args,
+  // remove modal lose animation
+  remove,
+  resolve,
+  reject,
+} = useModalRef();
 </script>
-
 ```
+
 Use in the view
+
 ```vue
-<script lang="ts"  setup>
+<script lang="ts" setup>
 import { useModal } from "vue-modal-provider";
-import TestModal from './Modal.vue'
-const {show} = useModal(TestModal)
+import TestModal from "./Modal.vue";
+const { show } = useModal(TestModal);
 
 function showModal() {
-    show('test msg').then(c=>{
-         console.log(c);
-    })
+  show("test msg").then((c) => {
+    console.log(c);
+  });
 }
-
 </script>
 
 <template>
   <el-button @click="showModal">open modal</el-button>
 </template>
-
 ```
