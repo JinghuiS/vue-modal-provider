@@ -2,7 +2,9 @@
 
 [nice-modal-react](https://github.com/eBay/nice-modal-react) vue implementation. Simple to use and manage modal.
 
-[doc](https://vue-modal-provider.netlify.app)
+## Document
+
+[Here](https://vue-modal-provider.netlify.app)The online document.
 
 benefit：
 
