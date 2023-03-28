@@ -7,7 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BaseModa: typeof import('./components/BaseUse/BaseModa.md')['default']
     BaseModal: typeof import('./components/BaseUse/BaseModal.md')['default']
     BaseUse: typeof import('./components/BaseUse/BaseUse.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -18,7 +17,6 @@ declare module '@vue/runtime-core' {
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElmentModalViewMd: typeof import('./components/RealCase/ElmentModalViewMd.md')['default']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     Modal: typeof import('./components/Modal.vue')['default']
