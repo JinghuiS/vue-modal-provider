@@ -4,10 +4,12 @@ import { ModalProvider, useModal, useModalRef } from "../../src";
 import { createdModalContext } from "../../src/useModal";
 import ModalTest from "./ModalTest.vue";
 
-const { ModalContent } = createdModalContext();
-const { show } = useModal(ModalTest, { msg: "111" });
+const { ModalContent } = createdModalContext()
+const msg = ref(0)
+const { show } = useModal(ModalTest, { msg: msg.value });
 const onChange = () => {
-  show({ abc: 1 });
+  msg.value = msg.value + 1
+  show({ msg: msg.value });
 };
 
 const count = ref(0);
@@ -24,9 +26,8 @@ const count = ref(0);
 
   <p>
     Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
+    starter
   </p>
   <p>
     Install

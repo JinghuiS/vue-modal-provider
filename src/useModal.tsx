@@ -1,5 +1,7 @@
 import {
+  Component,
   computed,
+  DefineComponent,
   defineComponent,
   getCurrentInstance,
   h,
@@ -14,21 +16,10 @@ import {
   modalIdContext,
   ModalStateToken,
   type ModalState,
-  type VueComponent,
   type ModalArgs,
+  type ComponentProps,
 } from "./Modal";
 import CreateModal from "./CreateModal.vue";
-const create = (modalId: string, Modal: any) => {
-  return defineComponent({
-    render() {
-      return (
-        <CreateModal modalId={modalId}>
-          <Modal />
-        </CreateModal>
-      );
-    },
-  });
-};
 
 export function useModalProvider() {
   let uuid = 0;
@@ -89,14 +80,20 @@ export function createdModalContext() {
   const ModalContent = defineComponent({
     name: "ModalContent",
     render() {
-      return modalList.value.map((item) => h(item.comp));
+      return modalList.value.map((item) =>
+        h(CreateModal, { modalId: item.id }, () => h(item.comp, item.args))
+      );
     },
   });
 
   return { ModalContent };
 }
 
-export function useModal(modal: VueComponent, args?: ModalArgs) {
+export function useModal<T extends Component>(
+  modal: T,
+  args?: ComponentProps<T>
+) {
+  type ModalPropsType = ComponentProps<T>;
   const instance = getCurrentInstance();
   //@ts-ignore
   const instanceInjector = instance!.provides[ModalStateToken];
@@ -111,10 +108,9 @@ export function useModal(modal: VueComponent, args?: ModalArgs) {
 
   const modalInfo = modalInstance.store?.[modalId];
 
-  const show = (showArgs?: ModalArgs) => {
+  const show = (showArgs?: ModalPropsType) => {
     if (firstShow.value || !modalInfo) {
-      const newModal = create(modalId, modal);
-      modalInstance.action?.register(modalId, newModal, args);
+      modalInstance.action?.register(modalId, modal, args);
       firstShow.value = false;
     }
     if (!modalInstance.modalPromise![modalId]) {

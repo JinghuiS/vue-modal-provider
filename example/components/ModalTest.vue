@@ -1,9 +1,16 @@
 <template>
-  <div>1212</div>
+  <div @click="hide">{{ msg }}
+
+    {{ visible ? 'show' : 'false' }}
+  </div>
 </template>
 <script lang="ts" setup>
-import { useModalRef } from "../../src";
 
-const { args } = useModalRef();
+import { useModalRef } from "../../src";
+const props = defineProps<{ msg: number }>();
+
+const { args, visible, hide } = useModalRef();
+
+
 console.log(args.value);
 </script>

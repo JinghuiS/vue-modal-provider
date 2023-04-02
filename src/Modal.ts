@@ -1,5 +1,7 @@
 import {
+  AllowedComponentProps,
   inject,
+  VNodeProps,
   type Component,
   type ComputedOptions,
   type MethodOptions,
@@ -30,16 +32,19 @@ export interface ModalState {
   };
 }
 
-export type VueComponent = Component<
-  any,
-  any,
-  any,
-  ComputedOptions,
-  MethodOptions
->;
-
 export type ModalArgs = any;
 
+export type ComponentConstructor<T> = {
+  new (): T;
+};
+export type ComponentProps<C extends Component> = C extends new (
+  ...args: any
+) => any
+  ? Omit<
+      InstanceType<C>["$props"],
+      keyof VNodeProps | keyof AllowedComponentProps
+    >
+  : never;
 export const ModalStateToken = Symbol("ModalStateToken");
 
 export const ModalIdToken = Symbol("ModalIdToken");
