@@ -1,5 +1,12 @@
 
 
+# [0.3.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.2.1...v0.3.0) (2023-04-02)
+
+
+### Features
+
+* 🎸 pass data through props ([f034e58](https://github.com/JinghuiS/vue-modal-provider/commit/f034e5892f30e38c0dce06755fcdf0e2c0997570))
+
 ## [0.2.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.2.0...v0.2.1) (2023-02-20)
 
 
