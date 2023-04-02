@@ -14,7 +14,7 @@ const modalValue = ref('')
 const promiseValue = ref('')
 
 const openModal = () => {
-  modal.show({ modalValue })
+  modal.show({ modalValue: modalValue.value })
 }
 const openPromiseModal = () => {
   promiseModal.show({ promiseValue }).then((res: any) => {

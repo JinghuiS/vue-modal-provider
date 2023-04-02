@@ -3,12 +3,15 @@
 import Modal from 'The modal component you use'
 import { useModalRef } from 'vue-modal-provider'
 
+// You can pass data through props
+defineProps<{ modalValue: string }>()
+
 const {
   // show variables
   visible,
   // close modal
   hide,
-  // args
+  // If you don’t like using props，You can use this
   args
 } = useModalRef()
 </script>

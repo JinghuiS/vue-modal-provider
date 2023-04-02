@@ -6,7 +6,8 @@ import BaseModal from './BaseModal.vue'
 const modal = useModal(BaseModal)
 const modalValue = ref('')
 const openModal = () => {
-  modal.show({ modalValue })
+  // The passed props will be type-checked according to the modal’s props
+  modal.show({ modalValue: modalValue.value })
 }
 </script>
 

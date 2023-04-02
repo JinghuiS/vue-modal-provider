@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useModalRef } from 'vue-modal-provider'
-
+defineProps<{ modalValue: string }>()
 const { visible, hide, args } = useModalRef()
 
 const { t } = useI18n()
@@ -17,11 +17,7 @@ const { t } = useI18n()
       <p> modal value: {{ args.modalValue }}</p>
     </template>
     <template #actions>
-      <button
-        btn m-3 text-sm
-
-        @click="hide"
-      >
+      <button btn m-3 text-sm @click="hide">
         {{ t('base_use.close_modal') }}
       </button>
     </template>
