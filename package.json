@@ -9,6 +9,7 @@
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/vue-modal-provider.es.js",
       "require": "./dist/vue-modal-provider.cjs.js"
     }
