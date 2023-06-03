@@ -1,5 +1,12 @@
 
 
+## [0.3.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.3.0...v0.3.1) (2023-06-03)
+
+
+### Bug Fixes
+
+* 🐛 Fix typescript5 introduction error ([8cd2419](https://github.com/JinghuiS/vue-modal-provider/commit/8cd2419fd28d3d96a0baf8378a2268936d210f0e))
+
 # [0.3.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.2.1...v0.3.0) (2023-04-02)
 
 
