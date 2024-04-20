@@ -1,5 +1,13 @@
 
 
+## [0.4.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.4.0...v0.4.1) (2024-04-20)
+
+
+### Bug Fixes
+
+* 🐛 fiex package module ([e0d3246](https://github.com/JinghuiS/vue-modal-provider/commit/e0d3246712c10c7c954c56264b5668939d2e7a85))
+* 🐛 fix package module ([e2c6b0a](https://github.com/JinghuiS/vue-modal-provider/commit/e2c6b0aa91ee305e6c40dad8bb48b0bd0fb755dc))
+
 # [0.4.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.3.1...v0.4.0) (2024-04-20)
 
 
