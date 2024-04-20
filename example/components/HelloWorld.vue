@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { provide, ref } from "vue";
 import { ModalProvider, useModal, useModalRef } from "../../src";
 import { createdModalContext } from "../../src/useModal";
 import ModalTest from "./ModalTest.vue";
 
-const { ModalContent } = createdModalContext()
-const msg = ref(0)
+// const { ModalContent } = createdModalContext();
+const msg = ref(0);
+provide("test", 1);
 const { show } = useModal(ModalTest, { msg: msg.value });
 const onChange = () => {
-  msg.value = msg.value + 1
   show({ msg: msg.value });
 };
 
@@ -26,8 +26,9 @@ const count = ref(0);
 
   <p>
     Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
-    starter
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
+      >create-vue</a
+    >, the official Vue + Vite starter
   </p>
   <p>
     Install
@@ -35,7 +36,7 @@ const count = ref(0);
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
-  <ModalContent />
+  <!-- <ModalContent /> -->
 </template>
 
 <style scoped>

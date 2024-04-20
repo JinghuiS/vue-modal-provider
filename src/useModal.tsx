@@ -48,9 +48,9 @@ export function useModalProvider() {
       }
       return modal[symModalId];
     },
-    register: (id: string, comp: any, args: ModalArgs) => {
+    register: (id: string, comp: any, args: ModalArgs, provide: any) => {
       if (!store[id]) {
-        store[id] = { comp, visible: false, args };
+        store[id] = { comp, visible: false, args, provide };
       } else {
         store[id].args = args;
       }
@@ -81,7 +81,9 @@ export function createdModalContext() {
     name: "ModalContent",
     render() {
       return modalList.value.map((item) =>
-        h(CreateModal, { modalId: item.id }, () => h(item.comp, item.args))
+        h(CreateModal, { modalId: item.id, provides: item.provide }, () =>
+          h(item.comp, item.args)
+        )
       );
     },
   });
@@ -95,12 +97,14 @@ export function useModal<T extends Component>(
 ) {
   type ModalPropsType = ComponentProps<T>;
   const instance = getCurrentInstance();
+
   //@ts-ignore
   const instanceInjector = instance!.provides[ModalStateToken];
   let modalInstance = modalContext();
   if (instanceInjector) {
     modalInstance = instanceInjector;
   }
+
   const modalId = modalInstance.action?.getModalId(modal);
 
   // first
@@ -110,7 +114,13 @@ export function useModal<T extends Component>(
 
   const show = (showArgs?: ModalPropsType) => {
     if (firstShow.value || !modalInfo) {
-      modalInstance.action?.register(modalId, modal, args);
+      modalInstance.action?.register(
+        modalId,
+        modal,
+        args,
+        //@ts-ignore
+        instance?.provides
+      );
       firstShow.value = false;
     }
     if (!modalInstance.modalPromise![modalId]) {

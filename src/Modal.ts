@@ -14,13 +14,14 @@ export interface ModalState {
     hide: (modalId: string) => void;
     remove: (modalId: string) => void;
     getModalId: (modal: any) => any;
-    register: (id: string, comp: any, args: any) => void;
+    register: (id: string, comp: any, args: any, provide: any) => void;
   };
   store: {
     [id: string]: {
       comp: Component<any, any, any, ComputedOptions, MethodOptions>;
       args?: ModalArgs;
       visible: boolean;
+      provide: any;
     };
   };
   modalPromise: {

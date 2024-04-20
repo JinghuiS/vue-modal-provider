@@ -4,15 +4,46 @@
   "name": "vue-modal-provider",
   "private": false,
   "version": "0.3.1",
-  "main": "dist/vue-modal-provider.cjs.js",
-  "module": "dist/vue-modal-provider.es.js",
-  "types": "dist/types/index.d.ts",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/es/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/vue-modal-provider.es.js",
-      "require": "./dist/vue-modal-provider.cjs.js"
-    }
+      "types": "./dist/es/index.d.ts",
+      "import": "./dist/es/index.mjs",
+      "require": "./dist/lib/index.js"
+    },
+    "./es": {
+      "types": "./dist/es/index.d.ts",
+      "import": "./dist/es/index.mjs"
+    },
+    "./lib": {
+      "types": "./dist/lib/index.d.ts",
+      "require": "./dist/lib/index.js"
+    },
+    "./es/*.mjs": {
+      "types": "./dist/es/*.d.ts",
+      "import": "./dist/es/*.mjs"
+    },
+    "./es/*": {
+      "types": [
+        "./dist/es/*.d.ts",
+        "./dist/es/*/index.d.ts"
+      ],
+      "import": "./dist/es/*.mjs"
+    },
+    "./lib/*.js": {
+      "types": "./dist/lib/*.d.ts",
+      "require": "./dist/lib/*.js"
+    },
+    "./lib/*": {
+      "types": [
+        "./dist/lib/*.d.ts",
+        "./dist/lib/*/index.d.ts"
+      ],
+      "require": "./dist/lib/*.js"
+    },
+    "./*": "./dist/*"
   },
   "files": [
     "dist",
@@ -20,7 +51,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && rimraf types && tsc --build tsconfig-build.json",
+    "build": "rimraf dist && vue-tsc -p tsconfig.build.json  && node build.cjs  && vite build --emptyOutDir false",
     "preview": "vite preview",
     "release": "pnpm build && npx release-it",
     "clean": "rm -rf node_modules **/*/node_modules"
@@ -61,16 +92,18 @@
     "email": "1292077619@qq.com"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "vue": "^3.4.23"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^5.1.0",
-    "@vitejs/plugin-vue": "^3.1.0",
-    "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "fast-glob": "^3.3.2",
+    "gulp": "^5.0.0",
     "release-it": "^15.4.2",
     "rimraf": "^3.0.2",
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0",
-    "vue-tsc": "^0.40.4"
+    "typescript": "~5.4.0",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6"
   }
 }

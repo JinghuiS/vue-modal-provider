@@ -1,16 +1,15 @@
 <template>
-  <div @click="hide">{{ msg }}
+  <Modal v-model="visible">
+    {{ msg }}
 
-    {{ visible ? 'show' : 'false' }}
-  </div>
+    {{ visible ? "show" : "false" }}
+  </Modal>
 </template>
 <script lang="ts" setup>
-
+import Modal from "./Modal.vue";
 import { useModalRef } from "../../src";
+import { inject } from "vue";
 const props = defineProps<{ msg: number }>();
-
 const { args, visible, hide } = useModalRef();
-
-
-console.log(args.value);
+let one = inject("test");
 </script>

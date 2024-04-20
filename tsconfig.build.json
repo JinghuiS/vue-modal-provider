@@ -3,7 +3,9 @@
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "dist/types"
+    "declarationDir": "dist/es",
+    "module": "ES6",
+    "target": "ES6"
   },
   "include": ["./src"]
 }

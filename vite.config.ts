@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import * as path from "path";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 
@@ -6,7 +7,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 export default defineConfig({
   plugins: [vue(), vueJsx()],
   build: {
-    target: "esnext",
+    target: "es2015",
     lib: {
       entry: "src/index.ts",
       name: "vue-modal-provider",
@@ -18,6 +19,7 @@ export default defineConfig({
       // into your library
       external: ["vue"],
       output: {
+        preserveModulesRoot: path.resolve(__dirname, "src/index.ts"),
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
