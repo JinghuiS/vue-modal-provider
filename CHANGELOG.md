@@ -1,5 +1,12 @@
 
 
+# [0.4.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.3.1...v0.4.0) (2024-04-20)
+
+
+### Features
+
+* 🎸 Merge context ([8bb8b26](https://github.com/JinghuiS/vue-modal-provider/commit/8bb8b2624074faf051891ec952407fdf8c59c202))
+
 ## [0.3.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.3.0...v0.3.1) (2023-06-03)
 
 
