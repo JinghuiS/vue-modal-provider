@@ -1,5 +1,12 @@
 
 
+# [0.5.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.4.1...v0.5.0) (2024-06-20)
+
+
+### Features
+
+* 🎸 改用 vueuse 的 inject ([3db46f5](https://github.com/JinghuiS/vue-modal-provider/commit/3db46f5cd3fcaf7119135ef86bb9c3f42212d723))
+
 ## [0.4.1](https://github.com/JinghuiS/vue-modal-provider/compare/v0.4.0...v0.4.1) (2024-04-20)
 
 
