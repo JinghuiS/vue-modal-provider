@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@7.17.1",
+
   "scripts": {
     "build": "vite-ssg build",
     "dev": "vite --host --port 3333 --open",
@@ -24,7 +24,7 @@
     "vue": "^3.2.45",
     "vue-demi": "^0.13.11",
     "vue-i18n": "^9.2.2",
-    "vue-modal-provider": "^0.4.1",
+    "vue-modal-provider": "^0.5.0",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

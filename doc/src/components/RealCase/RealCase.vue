@@ -3,6 +3,7 @@ import { useModal } from 'vue-modal-provider'
 import ElementModal from './ElementModal.vue'
 import ElementModalMd from './ElementModalMd.md'
 import ElementModalViewMd from './ElementModalViewMd.md'
+import ElementModalChildMd from './ElementChildModalMd.md'
 const { t } = useI18n()
 const elModal = useModal(ElementModal)
 const openModal = () => {
@@ -29,7 +30,8 @@ const openModal = () => {
         value: 'UseModalView',
         label: 'ModalView.vue',
       },
-      { value: 'Modal', label: 'ElementModal.vue' },
+  { value: 'Modal', label: 'ElementModal.vue' },
+  { value: 'ModalChild', label: 'ElementChildModal.vue' },
     ]"
   >
     <TagOption value="UseModalView">
@@ -37,6 +39,9 @@ const openModal = () => {
     </TagOption>
     <TagOption value="Modal">
       <ElementModalMd />
+    </TagOption>
+    <TagOption value="ModalChild">
+      <ElementModalChildMd />
     </TagOption>
   </TagList>
 </template>

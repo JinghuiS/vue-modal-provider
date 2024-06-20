@@ -11,6 +11,8 @@ declare module '@vue/runtime-core' {
     BaseUse: typeof import('./components/BaseUse/BaseUse.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElementChildModal: typeof import('./components/RealCase/ElementChildModal.vue')['default']
+    ElementChildModalMd: typeof import('./components/RealCase/ElementChildModalMd.md')['default']
     ElementModal: typeof import('./components/RealCase/ElementModal.vue')['default']
     ElementModalMd: typeof import('./components/RealCase/ElementModalMd.md')['default']
     ElementModalViewMd: typeof import('./components/RealCase/ElementModalViewMd.md')['default']

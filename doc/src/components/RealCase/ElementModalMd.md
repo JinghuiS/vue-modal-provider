@@ -1,9 +1,13 @@
 ```vue
 <script setup lang="ts">
 import { type FormInstance, type FormRules } from 'element-plus'
-import { useModalRef } from 'vue-modal-provider'
+import { useModal, useModalRef } from 'vue-modal-provider'
+import ElementChildModal from './ElementChildModal.vue'
 
 const { visible, hide, resolve, remove } = useModalRef()
+
+const modal = useModal(ElementChildModal)
+
 const elFormRef = ref<FormInstance>()
 const form = reactive({
   name: '',
@@ -42,6 +46,11 @@ const closeForm = () => {
     }, 200)
   })
 }
+
+const openChildModal = () => {
+  modal.show().then(res=>{})
+}
+
 </script>
 
 <template>
@@ -57,6 +66,9 @@ const closeForm = () => {
         </el-select>
       </el-form-item>
     </el-form>
+
+    <el-button @click="openChildModal">open child modal</el-button>
+
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="cancelForm">Cancel</el-button>
@@ -85,4 +97,5 @@ const closeForm = () => {
   margin-right: 10px;
 }
 </style>
+
 ```
