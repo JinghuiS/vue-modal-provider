@@ -4,15 +4,15 @@
 <script lang="ts" setup>
 import { getCurrentInstance, onUnmounted, provide } from "vue";
 import { modalContext, ModalIdToken } from "./Modal";
-const instance = getCurrentInstance();
+import { provideLocal } from "@vueuse/core";
+// const instance = getCurrentInstance();
 const { action } = modalContext();
 
-const props = defineProps<{ modalId: string; provides: any }>();
-provide(ModalIdToken, props.modalId);
-if (props.provides) {
-  //@ts-ignore
-  Object.assign(instance?.provides, props.provides);
-}
+const props = defineProps<{ modalId: string }>();
+provideLocal(ModalIdToken, props.modalId);
+// if (props.provides) {
+//   Object.assign(instance?.provides, props.provides);
+// }
 
 onUnmounted(() => {
   if (props.modalId) {

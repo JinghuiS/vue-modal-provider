@@ -92,6 +92,7 @@
     "email": "1292077619@qq.com"
   },
   "dependencies": {
+    "@vueuse/core": "^10.11.0",
     "vue": "^3.4.23"
   },
   "devDependencies": {

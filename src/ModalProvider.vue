@@ -1,7 +1,7 @@
 <template>
   <slot></slot>
   <template v-for="item in modalList" :key="item.id">
-    <CreateModal :provides="item.provide" :modal-id="item.id">
+    <CreateModal :modal-id="item.id">
       <component :is="item.comp" v-bind="item.args" />
     </CreateModal>
   </template>

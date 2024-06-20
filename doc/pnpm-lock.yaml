@@ -33,8 +33,8 @@ dependencies:
     specifier: ^9.2.2
     version: 9.2.2(vue@3.2.45)
   vue-modal-provider:
-    specifier: ^0.4.0
-    version: 0.4.0(typescript@4.9.4)
+    specifier: ^0.4.1
+    version: 0.4.1(typescript@4.9.4)
   vue-router:
     specifier: ^4.1.6
     version: 4.1.6(vue@3.2.45)
@@ -1916,7 +1916,7 @@ packages:
     engines: {node: '>= 16'}
     dependencies:
       '@intlify/shared': 9.4.1
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: true
 
   /@intlify/shared@9.2.2:
@@ -8285,7 +8285,6 @@ packages:
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
-    dev: false
 
   /source-map-support@0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
@@ -9480,8 +9479,8 @@ packages:
       '@vue/devtools-api': 6.2.1
       vue: 3.2.45
 
-  /vue-modal-provider@0.4.0(typescript@4.9.4):
-    resolution: {integrity: sha512-abBLba26UYqZ0oU6UtFEptaV9z6FlZAEGqPMTD6/skeLwqJXJ90HBtFbTwVTzXargNc47Kg4B6IxlDfa/B0K4A==}
+  /vue-modal-provider@0.4.1(typescript@4.9.4):
+    resolution: {integrity: sha512-QEAuiaeeZCGLSIWkBx/WYbdhmcIjNSm1UIwDfpXNFClf4cDGtw6ttPayaWIOYL2R1QbeodyWSHP7Z5tPRFe72w==}
     dependencies:
       vue: 3.4.23(typescript@4.9.4)
     transitivePeerDependencies:

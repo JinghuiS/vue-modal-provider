@@ -5,7 +5,6 @@ import {
   defineComponent,
   getCurrentInstance,
   h,
-  provide,
   reactive,
   ref,
   toRaw,
@@ -20,6 +19,7 @@ import {
   type ComponentProps,
 } from "./Modal";
 import CreateModal from "./CreateModal.vue";
+import { provideLocal } from "@vueuse/core";
 
 export function useModalProvider() {
   let uuid = 0;
@@ -48,16 +48,16 @@ export function useModalProvider() {
       }
       return modal[symModalId];
     },
-    register: (id: string, comp: any, args: ModalArgs, provide: any) => {
+    register: (id: string, comp: any, args: ModalArgs) => {
       if (!store[id]) {
-        store[id] = { comp, visible: false, args, provide };
+        store[id] = { comp, visible: false, args };
       } else {
         store[id].args = args;
       }
     },
   };
 
-  provide(ModalStateToken, { store, action, modalPromise });
+  provideLocal(ModalStateToken, { store, action, modalPromise });
 
   const modalList = computed(() => {
     const visibleModalIds = Object.keys(store).filter((id) => !!store[id]);
@@ -81,9 +81,7 @@ export function createdModalContext() {
     name: "ModalContent",
     render() {
       return modalList.value.map((item) =>
-        h(CreateModal, { modalId: item.id, provides: item.provide }, () =>
-          h(item.comp, item.args)
-        )
+        h(CreateModal, { modalId: item.id }, () => h(item.comp, item.args))
       );
     },
   });
@@ -96,14 +94,14 @@ export function useModal<T extends Component>(
   args?: ComponentProps<T>
 ) {
   type ModalPropsType = ComponentProps<T>;
-  const instance = getCurrentInstance();
+  // const instance = getCurrentInstance();
 
-  //@ts-ignore
-  const instanceInjector = instance!.provides[ModalStateToken];
+  // //@ts-ignore
+  // const instanceInjector = instance!.provides[ModalStateToken];
   let modalInstance = modalContext();
-  if (instanceInjector) {
-    modalInstance = instanceInjector;
-  }
+  // if (instanceInjector) {
+  //   modalInstance = instanceInjector;
+  // }
 
   const modalId = modalInstance.action?.getModalId(modal);
 
@@ -114,13 +112,7 @@ export function useModal<T extends Component>(
 
   const show = (showArgs?: ModalPropsType) => {
     if (firstShow.value || !modalInfo) {
-      modalInstance.action?.register(
-        modalId,
-        modal,
-        args,
-        //@ts-ignore
-        instance?.provides
-      );
+      modalInstance.action?.register(modalId, modal, args);
       firstShow.value = false;
     }
     if (!modalInstance.modalPromise![modalId]) {

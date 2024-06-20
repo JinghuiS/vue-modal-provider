@@ -1,6 +1,6 @@
+import { injectLocal } from "@vueuse/core";
 import {
   AllowedComponentProps,
-  inject,
   VNodeProps,
   type Component,
   type ComputedOptions,
@@ -14,14 +14,13 @@ export interface ModalState {
     hide: (modalId: string) => void;
     remove: (modalId: string) => void;
     getModalId: (modal: any) => any;
-    register: (id: string, comp: any, args: any, provide: any) => void;
+    register: (id: string, comp: any, args: any) => void;
   };
   store: {
     [id: string]: {
       comp: Component<any, any, any, ComputedOptions, MethodOptions>;
       args?: ModalArgs;
       visible: boolean;
-      provide: any;
     };
   };
   modalPromise: {
@@ -51,6 +50,6 @@ export const ModalStateToken = Symbol("ModalStateToken");
 export const ModalIdToken = Symbol("ModalIdToken");
 
 export const modalContext = () =>
-  inject<Partial<ModalState>>(ModalStateToken, {});
+  injectLocal<Partial<ModalState>>(ModalStateToken, {});
 
-export const modalIdContext = () => inject<string>(ModalIdToken, "");
+export const modalIdContext = () => injectLocal<string>(ModalIdToken, "");
