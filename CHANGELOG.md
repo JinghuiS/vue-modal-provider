@@ -1,5 +1,12 @@
 
 
+# [0.6.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.5.0...v0.6.0) (2024-11-06)
+
+
+### Features
+
+* 🎸 export modalContext ([59daa3e](https://github.com/JinghuiS/vue-modal-provider/commit/59daa3ec6871ff2d2aae183469d9eccdb5dad471))
+
 # [0.5.0](https://github.com/JinghuiS/vue-modal-provider/compare/v0.4.1...v0.5.0) (2024-06-20)
 
 
